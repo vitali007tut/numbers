@@ -11,7 +11,7 @@ export const RandomBlock = () => {
         <>
             <div className="section">
                 <h2 className="title">Random</h2>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="flex flex-wrap gap-2.5 justify-center sm:justify-between">
                     {['trivia', 'year', 'date', 'math'].map((type) => (
                         <button key={type} className="button" onClick={() => handleRandomClick(type)}>
                             {type.toUpperCase()}
