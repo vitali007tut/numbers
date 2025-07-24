@@ -35,7 +35,8 @@ export const NumberInputBlock: React.FC<NumberInputBlockProps> = ({ type }) => {
             <div className="input-container">
                 <input
                     id={`number-${type}`}
-                    type="text"
+                    type="tel"
+                    inputMode='numeric'
                     className="input text"
                     value={value}
                     onChange={handleInputChange}

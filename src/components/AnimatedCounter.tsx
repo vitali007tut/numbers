@@ -9,7 +9,7 @@ export default function HTMLContent({ value }: { value: number }) {
     useEffect(() => {
         const controls = animate(count, value, { duration: 0.8 });
         return () => controls.stop();
-    }, []);
+    }, [count, value]);
 
     return <motion.div>{rounded}</motion.div>;
 }
