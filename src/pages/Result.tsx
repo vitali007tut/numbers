@@ -7,7 +7,7 @@ export default function Result() {
     const [fact, setFact] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const BASE_URL = 'http://numbersapi.com/';
+    const BASE_URL = '/.netlify/functions/numbers-api?query=';
 
     let title = '';
     let url = '';
