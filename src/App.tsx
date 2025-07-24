@@ -7,7 +7,6 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} >
                 <Route path="/:value/:type" element={<Result />} />
-                <Route path="/:mounth/:day/:type" element={<Result />} />
             </Route>
         </Routes>
     );

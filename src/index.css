@@ -18,7 +18,7 @@
 }
 
 .logo {
-  @apply text-center;
+  @apply text-center text-3xl sm:text-5xl;
     text-shadow: #cce4f4 0px 0px 10px, #cce4f4 0 0 60px;
     margin: 0px;
     padding: 0;
@@ -26,7 +26,6 @@
     text-transform: uppercase;
     font-family: math;
     font-weight: bold;
-    font-size: 3em;
 }
 
 .section {
@@ -48,4 +47,16 @@
 
 .input-container {
   @apply w-full min-w-[200px] flex justify-between gap-2.5
+}
+
+.text {
+  text-shadow: #000000 0px 1px 0px;
+  font-family: Palatino, Georgia, serif;
+  font-weight: normal;
+  font-size: 18px;
+  color: #cce4f4;
+}
+
+.error-message {
+  @apply text-red-400 text-sm min-h-4 ml-1;
 }

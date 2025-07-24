@@ -1,13 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { AnimatePresence, motion } from 'motion/react';
 
 export default function Result() {
-    const { type, value, mounth, day } = useParams();
+    const { type, value } = useParams();
     const navigate = useNavigate();
     const [fact, setFact] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [isVisible, setIsVisible] = useState(true);
     const BASE_URL = '/.netlify/functions/numbers-api?query=';
+
+    const handleClear = () => {
+        setIsVisible(false);
+        setTimeout(() => {
+            navigate('/');
+        }, 300);
+    };
 
     let title = '';
     let url = '';
@@ -16,8 +25,9 @@ export default function Result() {
         title = `random ${type}`;
         url = `random/${type}`;
     } else if (type === 'date') {
-        title = `${type}: ${mounth} | ${day}`;
-        url = `${mounth}/${day}/${type}`;
+        const slashValue = value?.replace('-', '/');
+        title = `${type}: ${slashValue}`;
+        url = `${slashValue}`;
     } else if (type === 'math' || type === 'trivia') {
         title = `${type}: ${value}`;
         url = `${value}/${type}`;
@@ -32,7 +42,7 @@ export default function Result() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                const data = await response.text(); // API возвращает простой текст
+                const data = await response.text();
                 setFact(data);
             } catch (err) {
                 setError((err as Error).message);
@@ -47,16 +57,26 @@ export default function Result() {
     }, [url]);
 
     return (
-        <div className="section flex flex-col items-center">
-            <h2 className="title">Result for {title}</h2>
-            <div className="w-full max-w-2xl mt-2 p-4 bg-white/10 rounded text-white text-lg">
-                {loading && <p>Loading...</p>}
-                {error && <p className="text-red-400">Error: {error}</p>}
-                {fact && <p>{fact}</p>}
-            </div>
-            <button className="button mt-4" onClick={() => navigate('/')}>
-                Clear
-            </button>
-        </div>
+        <AnimatePresence>
+            {isVisible && (
+                <motion.div
+                    className="section flex flex-col items-center"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                >
+                    <h2 className="title">Result for {title}</h2>
+                    <div className="w-full max-w-2xl mt-2 p-4 bg-white/10 rounded text-white text-lg">
+                        {loading && <p className="text">Loading...</p>}
+                        {error && <p className="text-red-600">Error: {error}</p>}
+                        {!loading && fact && <p className="text">{fact}</p>}
+                    </div>
+                    <motion.button className="button mt-4" onClick={handleClear}>
+                        Clear
+                    </motion.button>
+                </motion.div>
+            )}
+        </AnimatePresence>
     );
 }
