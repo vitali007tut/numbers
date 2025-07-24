@@ -12,7 +12,7 @@ export const NumberInputBlock: React.FC<NumberInputBlockProps> = ({ type }) => {
     const label = type.toUpperCase();
 
     const handleSubmit = () => {
-        if (!/^\d+$/.test(value)) {
+        if (!/^[-]?\d+$/.test(value)) {
             setError(`${label} should only contain digits`);
             return;
         }
