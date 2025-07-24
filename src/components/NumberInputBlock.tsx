@@ -18,6 +18,7 @@ export const NumberInputBlock: React.FC<NumberInputBlockProps> = ({ type }) => {
         }
 
         setError('');
+        setValue('');
         navigate(`/${value}/${type}`);
     };
 

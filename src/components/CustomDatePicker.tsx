@@ -25,6 +25,7 @@ const CustomDatePicker = () => {
         }
         const month = selectedDate.getMonth() + 1;
         const day = selectedDate.getDate();
+        setSelectedDate(null);
         navigate(`/${month}-${day}/date`);
     };
 

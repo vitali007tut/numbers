@@ -16,6 +16,9 @@ Check it out on Netlify:
 - 🔁 Netlify Functions (Proxying HTTP API over HTTPS)
 - 📦 Vite
 
+## 👀 View
+![Анимация](src/assets/view.gif)
+
 ## 🧪 Development Setup
 
 To run locally using Netlify CLI:
