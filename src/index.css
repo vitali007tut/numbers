@@ -3,8 +3,8 @@
 .bg-multi-layer {
   @apply bg-repeat;
   background-image:
-    linear-gradient(rgba(30, 109, 160, 0.8) 0%, #1e6da0 60%),
     url('/src/assets/graph-paper-5.png'),
+    linear-gradient(rgba(30, 109, 160, 0.8) 0%, #1e6da0 60%),
     url('/src/assets/background.jpg');
 }
 
