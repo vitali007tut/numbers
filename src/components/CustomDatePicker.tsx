@@ -40,7 +40,9 @@ const CustomDatePicker = () => {
                     wrapperClassName="w-9/12 text"
                     dateFormat="MM / dd"
                     placeholderText="Choose date..."
-                    className="w-full bg-transparent placeholder:text-slate-400 text-white border border-slate-300 rounded-md px-4 py-2 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-slate-400"
+                    className={`w-full bg-transparent placeholder:text-slate-400 text border border-slate-300 rounded-md px-4 py-2 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-slate-400 ${
+                        error ? 'error-input' : ''
+                    }`}
                     popperClassName="z-10"
                     calendarClassName="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden mt-1 w-64"
                     dayClassName={() =>
