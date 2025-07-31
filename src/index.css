@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'pastel_crayon';
+  src: url('./assets/fonts/pastel_crayon.ttf') format('truetype');
+}
+
 .bg-multi-layer {
   @apply bg-repeat;
   background-image:
@@ -11,20 +16,25 @@
 .title {
   @apply mb-2.5 text-2xl text-center;
     text-shadow: rgb(2, 39, 63) 2px 2px 3px;
-    font-family: museo_sans, "Lucida Grande", "Lucida Sans", Helvetica, sans-serif;
+    font-family: 'pastel_crayon', sans-serif;
     font-weight: bold;
     letter-spacing: 3px;
     color: rgb(204, 228, 244);
 }
 
+body {
+  font-family: math;
+  letter-spacing: 0.5px;
+}
+
 .logo {
   @apply text-center text-3xl sm:text-5xl;
+    font-family: 'pastel_crayon', sans-serif;
     text-shadow: #cce4f4 0px 0px 10px, #cce4f4 0 0 60px;
     margin: 0px;
     padding: 0;
     color: #02273f;
     text-transform: uppercase;
-    font-family: math;
     font-weight: bold;
 }
 
