@@ -11,6 +11,7 @@ export default function Home() {
             <div className="section">
                 <NumberInputBlock type="math" />
                 <NumberInputBlock type="trivia" />
+                <NumberInputBlock type="year" />
                 <CustomDatePicker />
             </div>
             <RandomBlock />

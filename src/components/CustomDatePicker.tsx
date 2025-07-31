@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useNavigate } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
+import CustomInput from './CustomInput';
 
 const CustomDatePicker = () => {
     const [selectedDate, setSelectedDate] = useState<Date | null>();
@@ -37,6 +38,7 @@ const CustomDatePicker = () => {
                     selected={selectedDate}
                     onChange={handleDateChange}
                     onFocus={handleInputFocus}
+                    customInput={<CustomInput placeholder="Choose date..." />}
                     wrapperClassName="w-9/12 text"
                     dateFormat="MM / dd"
                     placeholderText="Choose date..."

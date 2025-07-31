@@ -30,7 +30,7 @@ export default function Result() {
         const slashValue = value?.replace('-', '/');
         title = `${type}:`;
         url = `${slashValue}`;
-    } else if (type === 'math' || type === 'trivia') {
+    } else {
         title = `${type}: `;
         url = `${value}/${type}`;
     }

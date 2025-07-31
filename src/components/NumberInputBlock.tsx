@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface NumberInputBlockProps {
-    type: 'math' | 'trivia';
+    type: 'math' | 'trivia' | 'year';
 }
 
 export const NumberInputBlock: React.FC<NumberInputBlockProps> = ({ type }) => {
@@ -41,7 +41,7 @@ export const NumberInputBlock: React.FC<NumberInputBlockProps> = ({ type }) => {
                     className={`input text ${error ? 'error-input' : ''}`}
                     value={value}
                     onChange={handleInputChange}
-                    placeholder="Type number..."
+                    placeholder={`Type ${type} number...`}
                 />
                 <button className="button" type="button" onClick={handleSubmit}>
                     {label}
