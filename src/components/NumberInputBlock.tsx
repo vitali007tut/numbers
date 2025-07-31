@@ -41,7 +41,7 @@ export const NumberInputBlock: React.FC<NumberInputBlockProps> = ({ type }) => {
                     className={`input text ${error ? 'error-input' : ''}`}
                     value={value}
                     onChange={handleInputChange}
-                    placeholder={`Type ${type} number...`}
+                    placeholder={`${type.charAt(0).toUpperCase() + type.slice(1)} number...`}
                 />
                 <button className="button" type="button" onClick={handleSubmit}>
                     {label}
